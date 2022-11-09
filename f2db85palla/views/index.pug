@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title} by VENU REDDY  PALLA
+  p maintain a good health and proper diet 
+  button(type="button",onclick="doBump()",class="btn btn-secondary") Press 
+  div(id="bump") Bump the count. 
+  div(id="result") Count 0 with bump 0
+  a(href="/earphones") Earphones
+  script.
+    let count = 0
+    let bump = 1
+    function doBump() 
+    {
+      let resultdiv = document.getElementById('result')
+      count = count + bump
+      bump += 1
+      resultdiv.innerHTML=`Count ${count} with bump ${bump}`
+    }

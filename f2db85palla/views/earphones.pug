@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+
+  .container-fluid 
+    .row 
+      each earphone,key in results
+        div(class="col-sm-2" onclick=`buy(${key})`) 
+         
+            = " " +earphone.Name +" "+earphone.Manufacture_Location+" "+earphone.price
+  script.
+    function buy(item){
+      alert("You purchased item "+item)
+    }

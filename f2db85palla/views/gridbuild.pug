@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1= title
+  - rows = Number(query.rows)
+  - cols = Number(query.cols)
+  p Number of Rows #{rows}
+  p Number of Columns #{cols}
+  p Displaying  Table
+  - if(Number.isNaN(rows)||Number.isNaN(cols)){
+      p Rows/Cols is not a number
+  -}
+  - else if(rows>10 || rows<1){
+      p Number of rows should be 1 to 10
+  -}
+  - else if(cols>10 || cols<1){
+      p   Number of cols should be 1 to 10
+  -}
+  - else{
+      table#outer
+        - for(let i=0; i<rows; i++) {
+            tr#middle
+              - for(let j=0; j<cols; j++) {
+                 td= i+1+(j*rows)
+              -}
+        -}
+  -}

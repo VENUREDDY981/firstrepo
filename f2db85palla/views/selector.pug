@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p THIS IS VENU REDDY PALLA THIS IS WEBAPPS ASSIGNMENT #{title}
+  - var image_names = ["airpodsbig.jpg","airpodspro.webp","boat.jpg","oneplus.jpg","skull.jpg"]
+  - var i =0;
+  - while(i<3){
+     - var randindex = Math.floor(Math.random()*5)
+     - img = "/images/"+image_names[randindex]
+     - i++
+     img(src=img,  height="300px",width="300px",alt="alt")     
+  -}
