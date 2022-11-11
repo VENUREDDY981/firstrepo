@@ -21,7 +21,7 @@ exports.costume_detail = async function(req, res) {
     res.send(`{"error": document for id ${req.params.id} not found`);
     }
    };
-};
+
 // Handle Earphone create on POST.
 exports.earphone_create_post = async function (req, res) {
     console.log(req.body)
