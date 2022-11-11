@@ -11,7 +11,7 @@ exports.earphone_list = async function (req, res) {
     }
 }
 // for a specific Earphone.
-exports.costume_detail = async function(req, res) {
+exports.earphone_detail = async function(req, res) {
     console.log("detail" + req.params.id)
     try {
     result = await earphone.findById( req.params.id)
@@ -20,7 +20,7 @@ exports.costume_detail = async function(req, res) {
     res.status(500)
     res.send(`{"error": document for id ${req.params.id} not found`);
     }
-   };
+ };
 
 // Handle Earphone create on POST.
 exports.earphone_create_post = async function (req, res) {
