@@ -1,0 +1,48 @@
+extends layout
+block content
+ h1= title
+ if (toShow == null)
+    h2 No instance to delete
+ else
+    - let earphoneid = toShow._id
+    - let Name = toShow.Name
+    - let Manufacture_Location = toShow.Manufacture_Location
+    - let price = toShow.price
+    - let actionid = "/resource/earphone/" + earphoneid
+    script let actionid = "#{actionid}"
+    div
+        div.row
+            div(class='earphoneAttr mr-3') Earphone ID is:
+            div #{earphoneid}
+        div.row
+            div(class='earphoneAttr mr-3') Earphone Name is:
+            div #{Name}
+        div.row
+            div(class='earphoneAttr mr-3') Earphone Price is:
+            div #{price}
+        div.row
+            div(class='earphoneAttr mr-3') Earphone Manufacture_Location is:
+            div #{Manufacture_Location}
+        button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
+        button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
+    script.
+        function cancel() {
+            window.location.href='/earphones'
+        }
+    script.
+        function deleteOnid() {
+            console.log("starting delete")
+            // delete first
+            fetch(actionid, {
+            method: 'DELETE'
+            }).then((resp) => {
+            return resp.json(); // or resp.text() or whatever the server sends
+            }).then((body) => {
+            alert("Delete succeded")
+            window.location.href='/earphones'
+            // TODO handle body
+            }).catch((error) => {
+            // TODO handle error
+            alert("Delete failed " + error )
+            });
+        }
