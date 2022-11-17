@@ -1,20 +1,23 @@
 extends layout
 block content
- h1= title
- - let earphoneid = toShow._id
- - let Name = toShow.Name
- - let Manufacture_Location = toShow.Manufacture_Location
- - let price = toShow.price
- div
- div.row
- div(class='earphoneAttr mr-3') Earphone ID is:
- div #{earphoneid}
- div.row
- div(class='earphoneAttr mr-3') Name is:
- div #{Name}
- div.row
- div(class='earphoneAttr mr-3') Manufacturer  is:
- div #{Manufacture_Location}
- div.row
- div(class='earphoneAttr mr-3')  Cost is:
- div #{price}
+    h1= title
+    if (toShow == null)
+       h2 No instance to delete 
+    else
+       - let earphoneid = toShow._id
+       - let Name = toShow.Name
+       - let Manufacture_Location = toShow.Manufacture_Location
+       - let price = toShow.price
+       div
+          div.row
+            div(class='earphoneAttr mr-3') Earphone ID is:
+            div #{earphoneid}
+          div.row
+            div(class='earphoneAttr mr-3') Name is:
+            div #{Name}
+          div.row
+            div(class='earphoneAttr mr-3') Manufacturer  is:
+            div #{Manufacture_Location}
+          div.row
+            div(class='earphoneAttr mr-3')  Cost is:
+            div #{price}

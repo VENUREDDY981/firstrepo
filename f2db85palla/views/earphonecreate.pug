@@ -1,11 +1,31 @@
 extends layout 
  
 block content 
-  h1= title 
- 
+  style.  
+    h1{
+        color:white;
+    }
+    body{
+        background:url('https://wallpapercave.com/wp/wp2015683.jpg');
+        background-size:cover;
+        background-repeat:no-repat;
+    }
+    label{
+        font-size:15px;
+    }
+    form{
+        padding:20px;
+        position:fixed;
+        top:50%;
+        background:rgba(0,0,0,0.5);
+        lefT:50%;
+        transform:translate(-50%,-50%);
+    }
   form(id='EarphoneForm', action="/resource/earphones/", method="POST") 
+    h1= title
+
     div.form-group 
-        label.earphoneAttr(for='Name') Earphone type 
+        label.earphoneAttr(for='Name') Earphone Name
         input#Name(type='text', name='Name') 
     div.form-group 
         label.earphoneAttr(for='Manufacture_Location') Earphone Manufacture_Location 
@@ -13,7 +33,9 @@ block content
     div.form-group 
         label.earphoneAttr(for='price') Earphone price 
         input#price(type='number', name='price') 
-    input(type="submit") 
+    center
+        br
+        input(type="submit" class="btn btn-primary")  
  
   script. 
     document.forms['EarphoneForm'].addEventListener('submit', (event) => { 
