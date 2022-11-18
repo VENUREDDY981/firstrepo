@@ -6,10 +6,16 @@ block content
   .container-fluid 
     .row 
       each earphone,key in results
+        -let destination = `dispatch(\"/earphones/update?id=${earphone._id}\")`
         div(class="col-sm-2" onclick=`buy(${key})`) 
+        
          
             = " " +earphone.Name +" "+earphone.Manufacture_Location+" "+earphone.price
+        button.btn( class="btn-primary ml-1", onclick= destination) Update
   script.
+    function dispatch(path){
+        window.location.href=path
     function buy(item){
-      alert("You purchased item "+item)
-    }
+        alert("You purchased item "+item)
+        }
+    }   
