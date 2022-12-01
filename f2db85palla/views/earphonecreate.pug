@@ -47,10 +47,13 @@ block content
       }).then((resp) => { 
         return resp.json(); // or resp.text() or whatever the server sends 
       }).then((body) => { 
-        alert("Save succeded") 
+        if(body.error)
+          alert("Save failed wrong data")
+        else
+         alert(" saved")
         // TODO handle body 
       }).catch((error) => { 
         // TODO handle error 
-        alert("Save failed " + error ) 
+        alert("Save failed " ) 
       }); 
     }); 

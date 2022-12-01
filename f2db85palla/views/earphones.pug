@@ -8,10 +8,10 @@ block content
       each earphone,key in results
         -let destination = `dispatch(\"/earphones/update?id=${earphone._id}\")`
         div(class="col-sm-2" onclick=`buy(${key})`) 
-        
-         
-            = " " +earphone.Name +" "+earphone.Manufacture_Location+" "+earphone.price
+            = " " +earphone.Name 
         button.btn( class="btn-primary ml-1", onclick= destination) Update
+        a(class="btn btn-primary" href=`/earphones/detail?id=${earphone._id}`) detail
+        a(class="btn btn-secondary" href=`/earphones/delete?id=${earphone._id}`) Delete
   script.
     function dispatch(path){
         window.location.href=path

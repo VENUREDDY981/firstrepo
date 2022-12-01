@@ -24,7 +24,7 @@ block content
           input#Manufacture_Location(type='text', name='Manufacture_Location' value=toShow.Manufacture_Location) 
       div.form-group 
           label.earphoneAttr(for='price') Earphone price 
-          input#price(type='number', name='earphone_variants' value=toShow.price) 
+          input#price(type='number', name='price' value=toShow.price) 
       input(type="submit") 
 
     script. 
@@ -37,10 +37,14 @@ block content
         }).then((resp) => { 
           return resp.json(); // or resp.text() or whatever the server sends 
         }).then((body) => { 
-          alert("Save succeded") 
+          console.log(body.error)
+          if(body.error)
+            alert("update failed")
+          else
+            alert("update successfull")  
           // TODO handle body 
         }).catch((error) => { 
           // TODO handle error 
-          alert("Save failed " + error ) 
+          alert("Save failed") 
         }); 
       }); 
